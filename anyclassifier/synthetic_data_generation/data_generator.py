@@ -7,7 +7,7 @@ from pydantic import BaseModel, RootModel
 from dotenv import load_dotenv
 import logging
 from tqdm import tqdm
-from anyclassifier.llm.llm_client import LLMClient, LlamaCppClient, OpenAIClient
+from anyclassifier.llm.llm_client import LLMClient, OpenAIClient
 from anyclassifier.schema.schema import ItemList, SourceTypeList, SyntheticData, Label
 from datasets import Dataset  # it is import to load llama_cpp first before datasets to prevent error like https://github.com/abetlen/llama-cpp-python/issues/806
 
@@ -260,8 +260,6 @@ if __name__ == "__main__":
         temperature=0.3,
         max_tokens=4096,
     )
-    # llm_client = LlamaCppClient(temperature=0.3,
-    #                             max_tokens=4096)
 
     tree_constructor = SyntheticDataGeneratorForSequenceClassification(llm_client)
     dataset: Dataset = asyncio.run(tree_constructor.generate(

@@ -1,0 +1,7 @@
+datasets>=2.20.0
+setfit>=1.0.3
+huggingface_hub==0.23.5
+fasttext==0.9.3
+transformers==4.39.0
+openai==1.42.0
+python-dotenv==1.0.1"

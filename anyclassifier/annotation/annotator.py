@@ -8,7 +8,7 @@ from collections import Counter
 import uuid
 from tqdm import tqdm
 import logging
-from anyclassifier.llm.llm_client import LLMClient, LlamaCppClient, OpenAIClient
+from anyclassifier.llm.llm_client import LLMClient, OpenAIClient
 from anyclassifier.annotation.prompt import AnnotationPrompt
 from anyclassifier.schema.schema import Label
 from datasets import Dataset, load_dataset  # it is important to load llama_cpp first before datasets to prevent error like https://github.com/abetlen/llama-cpp-python/issues/806
@@ -101,8 +101,6 @@ if __name__ == "__main__":
         temperature=0.3,
         max_tokens=256,
     )
-    # llm_client = LlamaCppClient(temperature=0.3,
-    #                             max_tokens=256)
 
     prompt = AnnotationPrompt(
         task_description="Classify a text's sentiment.",
